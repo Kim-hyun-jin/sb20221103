@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.hotel_mainImg {
+	width: 100%;
+	background: url("/img/hotel/hotel_usage.jpg");
+	background-repeat: no-repeat;
+	height: 230px;
+}
+
+.hotel_title {
+	font-size: 50px;
+	color: #222;
+	letter-spacing: 0;
+	text-align: center;
+	line-height: 1em;
+	margin: 35px 0 20px 0;
+	font-family: 'Jua', sans-serif;
+}
+
+.hotel_use_ment {
+	text-align: center;
+}
+
+.hotel_use_ment .title {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.hotel_use_ment .ment {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.card-body {
+	text-align: center;
+}
+
+hr {
+	margin: 100px;
+}

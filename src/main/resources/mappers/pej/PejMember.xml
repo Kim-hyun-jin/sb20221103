@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oracle.s20221103.MemberDogMapper">
+	<select id="selMemberList" resultType="MemberDog">
+		SELECT id, member_name, username, member_address, member_email, role
+		FROM member
+	</select>
+	
+	<select id="detailMemberDog" parameterType="int" resultType="MemberDog">	
+		SELECT m.member_name, d.dog_name, d.dog_gender, d.dog_age, d.dog_kind, m.role, d.sc_enddate
+		FROM member m, dog d
+		WHERE m.id = d.id 
+		AND m.id = #{id}
+	</select>
+</mapper>

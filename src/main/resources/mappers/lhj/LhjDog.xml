@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oracle.s20221103.DogMapper">
+	<select id="hjMyDogList" parameterType="Dog" resultType="Dog">
+		select dog_name,DOG_NO
+		from dog
+		where id=1
+	</select>
+	
+	<select id="mydogInfo" 	parameterType="Long" resultType="Dog">
+		SELECT * 
+		FROM  dog 
+		WHERE DOG_NO=#{dog_no}  
+	</select>
+
+
+
+</mapper>
