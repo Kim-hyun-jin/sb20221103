@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.oracle.sb20221103.dto.CusNotice;
+import com.oracle.sb20221103.domain.CusNotice;
+import com.oracle.sb20221103.dto.CusNoticeDTO;
 import com.oracle.sb20221103.khj.service.CusNoticeS;
 
 @Controller
@@ -37,12 +38,12 @@ public class CusNoticeController {
 	
 	//@PreAuthorize("isAuthenticated()")
 	@GetMapping("/detail")
-	public String detail(@RequestParam(defaultValue = "1") int cusNo) {
+	public String detail(@RequestParam(defaultValue = "1") Long cusNo,Model model) {
 		
 		//공지글번호로 데이터 조회
-		
+		CusNotice notice = cusNoticeS.selNotice(cusNo);
 		//조회객체 모델에 담아서 화면에 전달
-		
+		model.addAttribute("notice", notice);
 		return "customerService/cusNotice/detail";
 	}
 	
@@ -59,9 +60,10 @@ public class CusNoticeController {
 	}
 
 	@PostMapping("/write")
-	public String writePost() {
+	public String writePost(CusNotice notice) {
 		
-		//공지등록 후 결과에 따라 (유효성 검사, 내용검사) 
+		
+		cusNoticeS.insNotice(notice);
 		
 		
 		//성공 모달창 또는 "validation 문구 표시

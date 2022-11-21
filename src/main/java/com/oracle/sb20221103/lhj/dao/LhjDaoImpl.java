@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.oracle.sb20221103.dto.Dog;
+import com.oracle.sb20221103.dto.DogDTO;
 
 @Repository
 //@RequiredArgsConstructor
@@ -20,8 +20,8 @@ public class LhjDaoImpl implements LhjDao {
 	}
 
 	@Override
-	public List<Dog> myDogList(Dog dog) {
-		List<Dog> myDogList = null;
+	public List<DogDTO> myDogList(DogDTO dog) {
+		List<DogDTO> myDogList = null;
 		System.out.println("LhjDaoImpl myDogList Start ..." );
 		try {
 			myDogList = session.selectList("hjMyDogList" , dog);
@@ -34,9 +34,9 @@ public class LhjDaoImpl implements LhjDao {
 	}
 
 	@Override
-	public Dog mydogInfo(Long dogNo) {
+	public DogDTO mydogInfo(Long dogNo) {
 		System.out.println("LhjDaoImpl mydogInfo start..");
-		Dog dog = new Dog();
+		DogDTO dog = new DogDTO();
 		try {
 			dog = session.selectOne("mydogInfo", dogNo);
 		} catch (Exception e) {

@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oracle.sb20221103.dto.CusNotice;
+import com.oracle.sb20221103.domain.CusNotice;
+import com.oracle.sb20221103.dto.CusNoticeDTO;
 import com.oracle.sb20221103.khj.dao.CusNoticeJPA;
 
 @Service
@@ -29,23 +30,25 @@ public class CusNoticeSImpl implements CusNoticeS {
 	@Override
 	public CusNotice selNotice(Long cusNo) {
 		// TODO Auto-generated method stub
-		com.oracle.sb20221103.domain.CusNotice notice = cusNoticeJPA.select(cusNo);
+		//com.oracle.sb20221103.domain.CusNotice notice = cusNoticeJPA.select(cusNo);
 		
-		CusNotice noticeDTO = new CusNotice();
+		CusNotice notice = cusNoticeJPA.select(cusNo);
 		
 		//noticeDTO.setTitle(notice.getTitle());
 		
-		return noticeDTO;
+		return notice;
 	}
 
 	@Override
 	public CusNotice insNotice(CusNotice notice) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		cusNoticeJPA.insert(notice);
+		return notice;
 	}
 
 	@Override
-	public CusNotice updNotice(Long cusNo, CusNotice notice) {
+	public CusNoticeDTO updNotice(Long cusNo, CusNoticeDTO notice) {
 		// TODO Auto-generated method stub
 		return null;
 	}

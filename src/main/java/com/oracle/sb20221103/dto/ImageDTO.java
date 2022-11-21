@@ -3,10 +3,10 @@ package com.oracle.sb20221103.dto;
 import lombok.Data;
 
 @Data
-public class Image {
+public class ImageDTO {
 
 	private String tableType;
-	private Integer cusNo;//(??œ ê²Œì‹œ?Œ?)ê²Œì‹œê¸? ë²ˆí˜¸
+	private Integer cusNo;//(?ï¿½ï¿½?ï¿½ï¿½ê²Œì‹œ?ï¿½ï¿½?)ê²Œì‹œï¿½? ë²ˆí˜¸
 	private Integer imageNo;
 	private String imgPath;
 }

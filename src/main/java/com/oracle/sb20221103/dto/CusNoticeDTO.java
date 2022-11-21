@@ -4,10 +4,10 @@ import lombok.Data;
 
 
 @Data
-public class CusNotice {
+public class CusNoticeDTO {
 
 	private Long cusNo;
-	private String Id;
+	private String Id;//회원아이디
 	private String title;
 	private String content;
 	private String regdate; // ???��?�� ?�� ?��맷터�? date

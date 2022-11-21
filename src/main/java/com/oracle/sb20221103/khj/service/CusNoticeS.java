@@ -2,7 +2,8 @@ package com.oracle.sb20221103.khj.service;
 
 import java.util.List;
 
-import com.oracle.sb20221103.dto.CusNotice;
+import com.oracle.sb20221103.domain.CusNotice;
+import com.oracle.sb20221103.dto.CusNoticeDTO;
 
 public interface CusNoticeS {
 
@@ -11,10 +12,13 @@ public interface CusNoticeS {
 	
 	CusNotice selNotice(Long cusNo);
 	
-	CusNotice insNotice(CusNotice notice);
+	//CusNotice selNotice(Long cusNo);
+	//CusNoticeDTO insNotice(CusNoticeDTO notice);
 	
-	CusNotice updNotice(Long cusNo, CusNotice notice);
+	CusNoticeDTO updNotice(Long cusNo, CusNoticeDTO notice);
 	
 	void delNotice(Long cusNo);
+
+	CusNotice insNotice(CusNotice notice);
 	 
 }

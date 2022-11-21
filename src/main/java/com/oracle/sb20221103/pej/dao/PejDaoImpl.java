@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.oracle.sb20221103.dto.MemberDog;
+import com.oracle.sb20221103.dto.MemberDogDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,8 +23,8 @@ public class PejDaoImpl implements PejDao {
 
 
 	@Override
-	public List<MemberDog> selMemberDogList() {
-		List<MemberDog> selMemberDogList = null;
+	public List<MemberDogDTO> selMemberDogList() {
+		List<MemberDogDTO> selMemberDogList = null;
 		try {
 			selMemberDogList = session.selectList("selMemberList");
 		} catch (Exception e) {
@@ -35,8 +35,8 @@ public class PejDaoImpl implements PejDao {
 
 
 	@Override
-	public List<MemberDog> detailMemberDog(int id) {
-		List<MemberDog> detailMemberDog = null;
+	public List<MemberDogDTO> detailMemberDog(int id) {
+		List<MemberDogDTO> detailMemberDog = null;
 		System.out.println("PejDaoImpl detailMemberDog detailMemberDog start");
 		try {
 			detailMemberDog = session.selectList("detailMemberDog", id);

@@ -11,15 +11,15 @@
 
 <div id="main">
 	<div class="container">
-		<form action="/customerService/cusNotice/write" method="post">
+		<form action="/customerService/freeboard/write" method="post">
 			
 				<div class="mb-3">
-				  <label for="exampleFormControlInput1" class="form-label">제목</label>
-				  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요">
+				  <label for="title" class="form-label">제목</label>
+				  <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요" required="required">
 				</div>
 				<div class="mb-3">
-				  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				  <label for="content" class="form-label">내용</label>
+				  <textarea class="form-control" id="content" rows="3" required="required"></textarea>
 				</div>
 				
 				<div class="mb-3">

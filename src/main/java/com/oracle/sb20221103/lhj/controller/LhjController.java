@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.oracle.sb20221103.dto.Dog;
+import com.oracle.sb20221103.dto.DogDTO;
 import com.oracle.sb20221103.lhj.service.LhjService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,9 +27,9 @@ public class LhjController {
 	}
 
 	@GetMapping(value = "/mypage/member/myDogList")
-	public String myDogList(Dog dog, Model model) {
+	public String myDogList(DogDTO dog, Model model) {
 		System.out.println("LhjController Start myDogList..." );
-		List<Dog> myDogList = lhjs.myDogList(dog);
+		List<DogDTO> myDogList = lhjs.myDogList(dog);
 		System.out.println("LhjController myDogList myDogList.size()=>" + myDogList.size());
 		model.addAttribute("myDogList",myDogList);
 		return "mypage/member/myDogList";
@@ -40,7 +40,7 @@ public class LhjController {
 	public String mydogInfo(Long dog_no, Model model) {
 		System.out.println("LhjController Start mydogInfo..." );
 		
-		 Dog dog = lhjs.mydogInfo(dog_no);
+		 DogDTO dog = lhjs.mydogInfo(dog_no);
 		 model.addAttribute("dog",dog);
 		
 		return "mypage/member/myDogInfo";

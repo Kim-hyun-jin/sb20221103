@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oracle.sb20221103.dto.Room;
+import com.oracle.sb20221103.dto.RoomDTO;
 import com.oracle.sb20221103.ljw.dao.MyHotelRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -15,15 +15,10 @@ import lombok.RequiredArgsConstructor;
 public class MyHotelService implements HotelService {
 	private final MyHotelRepository mhr;
 	
-	
-	public MyHotelService(MyHotelRepository mhr) {
-		super();
-		this.mhr = mhr;
-	}
 
 
 	@Override
-	public List<Room> findRoomList() {
+	public List<RoomDTO> findRoomList() {
 		return mhr.findRoomList();
 	}
 

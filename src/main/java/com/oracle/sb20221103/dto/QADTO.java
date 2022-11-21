@@ -3,7 +3,7 @@ package com.oracle.sb20221103.dto;
 import lombok.Data;
 
 @Data
-public class QA {
+public class QADTO {
 
 	private Integer questionNo;
 	private String memberId;

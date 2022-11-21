@@ -27,13 +27,13 @@ integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ
 		<form action="#" method="post">
 			
 				<div class="mb-3">
-				  <label for="exampleFormControlInput1" class="form-label">제목</label>
-				  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요" readonly="readonly"
-				  value="자유게시판 이용안내">
+				  <label for="title" class="form-label">제목</label>
+				  <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요" readonly="readonly"
+				  value="${notice.title }">
 				</div>
 				<div class="mb-3">
-				  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly="readonly"></textarea>
+				  <label for="content" class="form-label">내용</label>
+				  <textarea class="form-control" id="content" rows="3" readonly="readonly">${notice.content}</textarea>
 				</div>
 				
 				<div class="mb-3">
@@ -42,11 +42,11 @@ integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ
 				</div>
 				
 				<a href="/customerService/cusNotice/modify">
-				<button type="button" class="btn btn-outline-secondary" >수정하기</button>
+					<button type="button" class="btn btn-outline-secondary" >수정하기</button>
 				</a>
 				
 				<a href="/customerService/cusNotice/main">
-				<button type="button" class="btn btn-outline-secondary">목록으로</button>
+					<button type="button" class="btn btn-outline-secondary">목록으로</button>
 				</a>
 			
 		</form>

@@ -19,20 +19,24 @@
                 <th scope="col">#</th>
                 <th scope="col">제목</th>
                 <th scope="col">작성자</th>
+                <th scope="col">카테고리</th>
                 <th scope="col">추천수</th>
                 <th scope="col">조회수</th>
                 <th scope="col">작성일</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td><a href="/customerService/freeboard/detail"> Mark </a></td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
+            	<c:forEach var="list" items="${freeList }">
+		              <tr>
+		                <th scope="row">${list.freeboardNo}</th>
+		                <td><a href="/customerService/freeboard/detail?freeboardNo=${list.freeboardNo}">${list.title} </a></td>
+		                <td>작성자(writer)</td>
+		                <td>${list.category}</td>
+		                <td>${list.recommand}</td>
+		                <td>${list.viewCount }</td>
+		                <td>${list.regdate}</td>
+		              </tr>
+              </c:forEach>
               <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>

@@ -13,7 +13,6 @@
  integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Pull Request Test3</h1>
 
     <div class="container">
 
@@ -32,8 +31,8 @@
             	
               <c:forEach var="list" items="${noticeList }">
 	              <tr>
-	                <th scope="row">1</th>
-	                <td><a href="/customerService/cusNotice/detail" class="text-decoration-none"> ${list.title} </a></td>
+	                <th scope="row">${list.cusNo}</th>
+	                <td><a href="/customerService/cusNotice/detail?cusNo=${list.cusNo}" class="text-decoration-none"> ${list.title} </a></td>
 	                <td>${list.content}</td>
 	                
 	                <td>${list.regdate}</td>

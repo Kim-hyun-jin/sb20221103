@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.oracle.sb20221103.dto.MemberDog;
+import com.oracle.sb20221103.dto.MemberDogDTO;
 import com.oracle.sb20221103.pej.service.PejService;
 
 import lombok.RequiredArgsConstructor;
@@ -38,7 +38,7 @@ public class PejController {
 	@RequestMapping(value = "/mypage/admin/memberList")
 	public String selMemberDogList(Model model) {
 		System.out.println("PejController selMemberDogList start");
-		List<MemberDog> selMemberDogList = ps.selMemberDogList();
+		List<MemberDogDTO> selMemberDogList = ps.selMemberDogList();
 		System.out.println("PejController selMemberDogList selMemberDogList.size()->"+selMemberDogList.size());
 		System.out.println(""+selMemberDogList.get(2).toString());
 		model.addAttribute("selMemberDogList", selMemberDogList);
@@ -49,7 +49,7 @@ public class PejController {
 	@GetMapping(value = "/mypage/admin/detailMemberDog")
 	public String detailMemberDog(int id, Model model) {
 		System.out.println("PejController detailMemberDog Start");
-		List<MemberDog> detailMemberDog = ps.detailMemberDog(id);
+		List<MemberDogDTO> detailMemberDog = ps.detailMemberDog(id);
 		model.addAttribute("selMemberDogList", detailMemberDog);
 		return "mypage/admin/detailMemberDog";
 

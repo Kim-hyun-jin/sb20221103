@@ -3,7 +3,7 @@ package com.oracle.sb20221103.dto;
 import lombok.Data;
 
 @Data
-public class MemberDog {
+public class MemberDogDTO {
 	private int 	id;				// ?��?��번호
 	private String 	username;		// ?��?��?��?��?��
 	private String 	role;			// 권한

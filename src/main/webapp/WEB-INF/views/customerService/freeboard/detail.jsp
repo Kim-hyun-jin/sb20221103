@@ -26,27 +26,69 @@ integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ
 	<div class="container">
 		<form action="#" method="post">
 			
+				<input hidden="${freeboard.freeboardNo }" name="freeboardNo">
+				
 				<div class="mb-3">
-				  <label for="exampleFormControlInput1" class="form-label">제목</label>
-				  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요" readonly="readonly"
-				  value="자유게시판 이용안내">
+				  <label for="title" class="form-label">제목</label>
+				  <input type="text" class="form-control" id="title" readonly="readonly"
+				  value="${freeboard.title}" name="title">
+				</div>
+				
+				<div class="mb-3">
+				  <label for="writer" class="form-label">작성자</label>
+				  <input class="form-control" id="writer" rows="3" readonly="readonly" name="writer"
+				  value="임시처리">
+				</div>
+				
+				<div class="mb-3">
+				  <label for="category" class="form-label">카테고리</label>
+				  <input class="form-control" id="category" rows="3" readonly="readonly" name="category"
+				  value="${freeboard.category }">
 				</div>
 				<div class="mb-3">
-				  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly="readonly"></textarea>
+				  <label for="recommand" class="form-label">추천수</label>
+				  <input class="form-control" id="recommand" rows="3" readonly="readonly" name="recommand"
+				  value="${freeboard.recommand }">
 				</div>
+				<div class="mb-3">
+				  <label for="viewCount" class="form-label">조회수</label>
+				  <input class="form-control" id="viewCount" rows="3" readonly="readonly" name="viewCount"
+				  value="${freeboard.viewCount }">
+				</div>
+				<div class="mb-3">
+				  <label for="regdate" class="form-label">작성일</label>
+				  <input class="form-control" id="regdate" rows="3" readonly="readonly" name="regdate"
+				   value="${freeboard.regdate }">
+				</div>
+				
+				
+				
+				<div class="mb-3">
+				  <label for="content" class="form-label">내용</label>
+				  <textarea class="form-control" id="content" rows="3" readonly="readonly">
+				  ${freeboard.content}
+				  </textarea>
+				</div>
+				
 				
 				<div class="mb-3">
 				  <label for="formFileMultiple" class="form-label">첨부파일</label>
 				  <input class="form-control" type="file" id="formFileMultiple" multiple>
 				</div>
 				
-				<a href="/customerService/cusNotice/modify">
-				<button type="button" class="btn btn-outline-secondary">수정하기</button>
-				</a>
+				
+			 <%-- <sec:authentication property="principal" var="pinfo"/> --%>
+					<sec:authorize access="isAuthenticated()">
+						<%-- <c:if test="${pinfo.username eq freeboard.id }"> --%>
+							<a href="/customerService/cusNotice/modify">
+								<button type="button" class="btn btn-outline-secondary">수정하기</button>
+							</a>
+						<%-- </c:if> --%>
+					</sec:authorize>
+				
 				
 				<a href="/customerService/cusNotice/main">
-				<button type="button" class="btn btn-outline-secondary">목록으로</button>
+					<button type="button" class="btn btn-outline-secondary">목록으로</button>
 				</a>
 			
 		</form>

@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.oracle.sb20221103.dto.Room;
+import com.oracle.sb20221103.dto.RoomDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,8 +23,8 @@ public class MyHotelRepository implements HotelRepository {
 
 
 	@Override
-	public List<Room> findRoomList() {
-		List<Room> result = null;
+	public List<RoomDTO> findRoomList() {
+		List<RoomDTO> result = null;
 		try {
 			result = session.selectList("roomList");
 		} catch (Exception e) {

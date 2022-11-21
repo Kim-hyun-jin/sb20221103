@@ -114,9 +114,9 @@ public class HomeController {
 			return "customerService/QA/QA";
 		}
 		
-		//�옄�쑀寃뚯떆�뙋 硫붿씤�럹�씠吏�
-		@GetMapping("/customerService/freeboard/main")
-		public String customerServiceFreeboardMain() {
-			return "customerService/freeboard/main";
-		}
+//		//�옄�쑀寃뚯떆�뙋 硫붿씤�럹�씠吏�
+//		@GetMapping("/customerService/freeboard/main")
+//		public String customerServiceFreeboardMain() {
+//			return "customerService/freeboard/main";
+//		}
 }

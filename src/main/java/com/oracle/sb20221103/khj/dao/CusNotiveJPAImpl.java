@@ -38,8 +38,10 @@ public class CusNotiveJPAImpl implements CusNoticeJPA {
 	public CusNotice select(Long cusNo) {
 		// TODO Auto-generated method stub
 		
-		Object selectedNotice = cusNoticeRepository.findById(cusNo);
-		return (CusNotice) selectedNotice;
+		CusNotice selectedNotice = cusNoticeRepository.getReferenceById(cusNo);
+				
+									//cusNoticeRepository.findById(cusNo);
+		return   selectedNotice;
 	}
 	
 	

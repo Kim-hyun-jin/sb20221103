@@ -3,7 +3,7 @@ package com.oracle.sb20221103.dto;
 import lombok.Data;
 
 @Data
-public class Common {
+public class CommonDTO {
 
 	private int bcd;
 	private int content;

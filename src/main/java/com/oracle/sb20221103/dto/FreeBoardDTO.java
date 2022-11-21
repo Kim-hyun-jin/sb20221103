@@ -4,9 +4,9 @@ import lombok.Data;
 
 
 @Data
-public class FreeBoard {
+public class FreeBoardDTO {
 
-	private Integer freeboardNo;
+	private int freeboardNo;
 	private String category;
 	private String memberId;
 	private String title;

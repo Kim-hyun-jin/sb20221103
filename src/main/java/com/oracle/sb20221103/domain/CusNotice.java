@@ -1,41 +1,51 @@
 package com.oracle.sb20221103.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 //import javax.persistence.SequenceGenerator;
+import javax.persistence.SequenceGenerator;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 
 
 
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@SequenceGenerator(name = "CUSNOTICE_SEQ_GEN",               // 객체  SEQ
+sequenceName = "CUS_NOTICE_SEQ", // DB SEQ
+initialValue = 10,
+allocationSize =1 )
 public class CusNotice {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+    generator = "CUSNOTICE_SEQ_GEN")
 	private Long cusNo;
 	
-	//OneToOne
+//	//OneToOne
 	private String Id;
+//	@ManyToOne
+//	@JoinColumn(name = "id")
+//	private Member member;
+	
+	@Column(length = 500, nullable = false)
 	private String title;
+	
+	@Column(length = 2000, nullable = false)
 	private String content;
 	private String regdate;
 	
-	
-	
-	public CusNotice(Long cusNo, String Id, String title, String content, String regdate) {
-		super();
-		this.cusNo = cusNo;
-		this.Id = Id;
-		this.title = title;
-		this.content = content;
-		this.regdate = regdate;
-	}
-	
-	
-	public CusNotice() {
-		
-	}
+
 
 
 	public Long getCusNo() {

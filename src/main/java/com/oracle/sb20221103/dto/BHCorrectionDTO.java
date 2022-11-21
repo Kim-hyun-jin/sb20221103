@@ -3,7 +3,7 @@ package com.oracle.sb20221103.dto;
 import lombok.Data;
 
 @Data
-public class BHCorrection {
+public class BHCorrectionDTO {
 	private Long appliNo;
 	private String id;
 	private Long dogNo;
