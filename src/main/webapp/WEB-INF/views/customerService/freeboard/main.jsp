@@ -75,11 +75,11 @@
               </li>
             </ul>
           </nav>
-          
-          <a  href="/customerService/freeboard/write">
-          <button type="button" class="btn btn-outline-secondary justify-content-end">글쓰기</button>
-          </a>
-          
+          <%-- <sec:authorize access="hasRole('MEMBER')"> --%>
+	          <a  href="/customerService/freeboard/write">
+	          	<button type="button" class="btn btn-outline-secondary justify-content-end">글쓰기</button>
+	          </a>
+         <%--  </sec:authorize> --%>
         </div>
 
 

@@ -32,7 +32,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 		System.out.println("loadUserByUsername: "+ username);
 		
 
-		  UserDetails userDetails = User.builder().username("admin")
+		  UserDetails userDetails = User.builder()
+				.username("admin")
 				.password(passwordEncoder.encode("1111"))//패스워드 인코딩
 				.authorities("ROLE_ADMIN")
 				.build();

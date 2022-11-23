@@ -41,9 +41,11 @@ integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ
 				  <input class="form-control" type="file" id="formFileMultiple" multiple>
 				</div>
 				
-				<a href="/customerService/cusNotice/modify">
-					<button type="button" class="btn btn-outline-secondary" >수정하기</button>
-				</a>
+				<sec:authorize access="hasRole('ADMIN')">
+					<a href="/customerService/cusNotice/modify">
+						<button type="button" class="btn btn-outline-secondary" >수정하기</button>
+					</a>
+				</sec:authorize>
 				
 				<a href="/customerService/cusNotice/main">
 					<button type="button" class="btn btn-outline-secondary">목록으로</button>

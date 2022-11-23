@@ -1,6 +1,7 @@
 package com.oracle.sb20221103.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -17,16 +18,20 @@ public class HomeController {
 		}
 		
 		
-	//--------------------------------------濡쒓렇�씤/�쉶�썝媛��엯/�쉶�썝愿�由�--------------------------------------------------------------------------------------	
+	//--------------------------------------회원관리--------------------------------------------------------------------------------------	
 		
 		@GetMapping("/main/login")
-		public String loginForm(String error, String logout) {
+		public String loginForm(String error, String logout,Model model) {
 			
 			System.out.println("loginForm");
 			System.out.println("logout: "+ logout);
 			
+			if(error != null) {
+				model.addAttribute("error", "Login error check out your accout");
+			}
 			if(logout != null) {
 				System.out.println("user logout");
+				model.addAttribute("logout", " logout success");
 			}
 			
 			return "main/loginForm";

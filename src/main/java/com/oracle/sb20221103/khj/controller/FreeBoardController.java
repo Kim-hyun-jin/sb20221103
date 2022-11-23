@@ -45,6 +45,7 @@ public class FreeBoardController {
 	
 	//글작성
 	//@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('MEMBER')")
 	@GetMapping("/write")
 	public String writeGet() {
 		
@@ -63,14 +64,21 @@ public class FreeBoardController {
 		return "redirect:/customerService/freeboard/main";
 	}
 	
-	
 
 	
 	//수정
+	@PreAuthorize("principal.usename == #FreeBoardDTO.writer")
 	@GetMapping("/modify")
 	public String modify() {
 		
 		return "customerService/freeboard/modify";
 	}
+	
+	@PreAuthorize("principal.usename == #FreeBoardDTO.writer")
+	@PostMapping("/delete")
+	public String delete(Long freeboardNo) {
+		return "redirect:/customerService/freeboard/main";
+	}
+	
 
 }

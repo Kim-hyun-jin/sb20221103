@@ -81,11 +81,11 @@
           </nav>
           
          <!--  메인 첫 조회시 권한에 따라 보여줄지 말지 결정 -->
-         <sec:authorize></sec:authorize>
-          <a  href="/customerService/cusNotice/write">
-          <button type="button" class="btn btn-outline-secondary justify-content-end">공지등록</button>
-          </a>
-          
+         <sec:authorize access="hasRole('ADMIN')">
+	          <a  href="/customerService/cusNotice/write">
+	          	<button type="button" class="btn btn-outline-secondary justify-content-end">공지등록</button>
+	          </a>
+         </sec:authorize>
         </div>
     
     

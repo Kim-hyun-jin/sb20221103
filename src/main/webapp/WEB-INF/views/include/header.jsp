@@ -85,11 +85,26 @@
               </form> -->
               
               <!-- <button type="button" class="btn btn-outline-primary" >마이페이지</button> -->
-              <button type="button" class="btn btn-outline-secondary"><a  href="/main/login">로그인</a></button>
-              <button type="button" class="btn btn-outline-secondary"><a  href="/main/signup">회원가입</a></button>
-             <!--  로그인 기능 구현 전이므로 관리자 페이지를 디폴트로 연결 -->
-              <button type="button" class="btn btn-outline-secondary"><a href="/mypage/admin/main">마이페이지(admin)</a></button>
+              <sec:authorize access="isAnonymous()">
+	              <a  href="/main/login"><button type="button" class="btn btn-outline-secondary">로그인</button></a>
+	              <a  href="/main/signup"><button type="button" class="btn btn-outline-secondary">회원가입</button></a>
+              </sec:authorize>
               
+              <sec:authorize access="isAuthenticated()">
+              	<a  href="/logout"><button type="button" class="btn btn-outline-secondary">로그아웃</button></a>
+              </sec:authorize>
+              
+             <!--  로그인 기능 구현 전이므로 관리자 페이지를 디폴트로 연결 -->
+             <sec:authorize access="hasRole('ADMIN')">
+                <a href="/mypage/admin/main"><button type="button" class="btn btn-outline-secondary">마이페이지(admin)</button></a>
+             </sec:authorize>
+             
+             <sec:authorize access="hasRole('MEMBER')">
+                <a href="/mypage/admin/main"><button type="button" class="btn btn-outline-secondary">마이페이지(admin)</button></a>
+             </sec:authorize>
+             
+             <!-- hasRole('TEACHER') ? -->
+             
             </div>
           </div>
         </nav>

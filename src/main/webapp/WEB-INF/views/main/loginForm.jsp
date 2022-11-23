@@ -23,7 +23,7 @@ integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1z
         </div>
         <div class="row justify-content-center my-10">
             <div class="col-lg-6">
-                <form id="loginForm" action="/main/login" method="post">
+                <form  action="/main/login" method="post" id="loginForm">
                     <label for="username" class="form-label my-2">ID:</label>
                     <input type="text" id="username" name="username" placeholder="id" class="form-control"/>
 
@@ -37,6 +37,9 @@ integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1z
                         <option value="member">보호자(회원)</option>
                     </select>
 					-->
+					<h4>${error }</h4>
+					<h4>${logout }</h4>
+					
 					<div class="my-4">
 						<div class="float-end">
 							<button type="submit" class="btn btn-outline-secondary submitBtn">
