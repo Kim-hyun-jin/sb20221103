@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.oracle.sb20221103.domain.CusNotice;
 import com.oracle.sb20221103.dto.CusNoticeDTO;
 import com.oracle.sb20221103.khj.dao.CusNoticeJPA;
 
 @Service
+@Transactional
 public class CusNoticeSImpl implements CusNoticeS {
 
 	private final CusNoticeJPA cusNoticeJPA;

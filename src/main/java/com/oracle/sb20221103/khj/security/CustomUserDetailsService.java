@@ -1,6 +1,9 @@
 package com.oracle.sb20221103.khj.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,22 +11,23 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.oracle.sb20221103.domain.Member;
+import com.oracle.sb20221103.dto.MemberSecurityDTO;
+import com.oracle.sb20221103.khj.repository.MemberRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-
+@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 	
+	private final MemberRepository memberRepository;
 	
 	private PasswordEncoder passwordEncoder;
 	
-
-	public CustomUserDetailsService(PasswordEncoder passwordEncoder) {
-		
-		this.passwordEncoder = passwordEncoder;
-	}
+	
 
 
 	@Override
@@ -38,14 +42,33 @@ public class CustomUserDetailsService implements UserDetailsService {
 				.authorities("ROLE_ADMIN")
 				.build();
 		
-	log.info("username: "+ username);
-	log.info("password: ????");
-//		userDetails = User.builder().username("user")
-//				.password(passwordEncoder.encode("2222"))
-//				.authorities("ROLE_USER")
-//				.build();
+//			UserDetails userDetails = User.builder().username("user")
+//			.password(passwordEncoder.encode("2222"))
+//			.authorities("ROLE_USER")
+//			.build();
+		  Optional<Member> result = memberRepository.getWithRoles(username);
+		  
+		  if(result.isEmpty()) {
+			  throw new UsernameNotFoundException("username not found..");	  
+		  }
+		  
+		  
+		  Member member = result.get();
+		  
+		  MemberSecurityDTO memberSecurityDTO= new MemberSecurityDTO(
+				 
+				  member.getId(), 
+				  member.getPassword(),
+				  member.getMemberEmail(), 
+				  member.getMemberDrop(),
+				  member.getRoleSet()
+				  		.stream().map(memberRole -> new SimpleGrantedAuthority("ROLE_"+memberRole.name()))
+				  		.collect(Collectors.toList()));
+		  
+
 		
 		return userDetails;
+		//return memberSecurityDTO;
 
 	}
 

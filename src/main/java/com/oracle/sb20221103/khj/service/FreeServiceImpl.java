@@ -3,11 +3,13 @@ package com.oracle.sb20221103.khj.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.oracle.sb20221103.dto.FreeBoardDTO;
 import com.oracle.sb20221103.khj.dao.FreeDAO;
 
 @Service
+@Transactional
 public class FreeServiceImpl implements FreeService {
 
 	private FreeDAO freeDAO;
