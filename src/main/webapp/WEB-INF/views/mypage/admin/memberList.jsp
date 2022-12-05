@@ -21,7 +21,6 @@
 		</c:forEach>
 	</table>
 
-
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>

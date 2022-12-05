@@ -20,8 +20,6 @@ import com.oracle.sb20221103.khj.service.CusNoticeS;
 public class CusNoticeController {
 	
 	private final CusNoticeS cusNoticeS;
-	
-	
 
 	public CusNoticeController(CusNoticeS cusNoticeS) {
 		
@@ -51,7 +49,7 @@ public class CusNoticeController {
 	
 	
 	//글작성
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	//@PreAuthorize("hasRole('USER')")
 	@GetMapping("/write")
 	public String writeGet() {

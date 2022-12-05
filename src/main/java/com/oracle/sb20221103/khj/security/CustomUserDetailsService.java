@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import com.oracle.sb20221103.domain.Member;
@@ -32,20 +33,29 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
+		
 		System.out.println("loadUserByUsername: "+ username);
 		
 
-		  UserDetails userDetails = User.builder()
+		  UserDetails admin = User.builder()
 				.username("admin")
-				.password(passwordEncoder.encode("1111"))//패스워드 인코딩
-				.authorities("ROLE_ADMIN")
+				//password(passwordEncoder.encode("1111"))
+				.password("{noop}admin")//패스워드 인코딩
+				.authorities("ROLE_ADMIN","ROLE_MEMBER")
 				.build();
-		
+		  UserDetails user = User.builder()
+				.username("user")
+				//password(passwordEncoder.encode("1111"))
+				.password("user")//패스워드 인코딩
+				.authorities("ROLE_MEMBER")
+				.build();
+		  
 //			UserDetails userDetails = User.builder().username("user")
 //			.password(passwordEncoder.encode("2222"))
 //			.authorities("ROLE_USER")
 //			.build();
+		  
+		  
 		  Optional<Member> result = memberRepository.getWithRoles(username);
 		  
 		  if(result.isEmpty()) {
@@ -53,22 +63,23 @@ public class CustomUserDetailsService implements UserDetailsService {
 		  }
 		  
 		  
-		  Member member = result.get();
-		  
-		  MemberSecurityDTO memberSecurityDTO= new MemberSecurityDTO(
-				 
-				  member.getId(), 
-				  member.getPassword(),
-				  member.getMemberEmail(), 
-				  member.getMemberDrop(),
-				  member.getRoleSet()
-				  		.stream().map(memberRole -> new SimpleGrantedAuthority("ROLE_"+memberRole.name()))
-				  		.collect(Collectors.toList()));
+//		  Member member = result.get();
+//		  
+//		  MemberSecurityDTO memberSecurityDTO= new MemberSecurityDTO(
+//				 
+//				  member.getId(), 
+//				  member.getPassword(),
+//				  member.getMemberEmail(), 
+//				  member.getMemberDrop(),
+//				  member.getRoleSet()
+//				  		.stream().map(memberRole -> new SimpleGrantedAuthority("ROLE_"+memberRole.name()))
+//				  		.collect(Collectors.toList()));
 		  
 
 		
-		return userDetails;
+		//return userDetails;
 		//return memberSecurityDTO;
+		  return (UserDetails) new InMemoryUserDetailsManager(user, admin);
 
 	}
 

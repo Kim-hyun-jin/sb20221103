@@ -13,7 +13,8 @@
  integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<p> <a href="<%=context %>/uploadForm">form upload</a></p>
+<p> <a href="<%=context %>/uploadAjax">ajax upload</a></p>
     <div class="container">
 
         <table class="table caption-top">
@@ -79,16 +80,16 @@
               </li>
             </ul>
           </nav>
-          
+
          <!--  메인 첫 조회시 권한에 따라 보여줄지 말지 결정 -->
-         <sec:authorize access="hasRole('ADMIN')">
+         <%-- <sec:authorize access="hasRole('ADMIN')"> --%>
 	          <a  href="/customerService/cusNotice/write">
 	          	<button type="button" class="btn btn-outline-secondary justify-content-end">공지등록</button>
 	          </a>
-         </sec:authorize>
+         <%-- </sec:authorize> --%>
         </div>
     
-    
+
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>

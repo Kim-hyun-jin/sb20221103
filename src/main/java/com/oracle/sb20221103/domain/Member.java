@@ -28,7 +28,7 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "roleSet")
+//@ToString(exclude = "roleSet")
 public class Member {
 
 	@Id
@@ -49,21 +49,21 @@ public class Member {
 	
 	
 	//권한 해시셋으로
-	@ElementCollection(fetch = FetchType.LAZY)
-	//hashSet 에도 빌더 사용하려고 쓰는 어노테이션
-	@Builder.Default
-	private Set<MemberRole> roleSet = new HashSet<>();
+//	@ElementCollection(fetch = FetchType.LAZY)
+//	hashSet 에도 빌더 사용하려고 쓰는 어노테이션
+//	@Builder.Default
+//	private Set<MemberRole> roleSet = new HashSet<>();
 	
 	//The field annotated with @Default must have an initializing expression;
 	//that expression is taken as the default to be used if not explicitly set during building.
 	
-	public void addRole(MemberRole memberRole) {
-		this.roleSet.add(memberRole);
-	}
-	
-	public void clearRole(MemberRole memberRole) {
-		this.roleSet.clear();
-	}
+//	public void addRole(MemberRole memberRole) {
+//		this.roleSet.add(memberRole);
+//	}
+//	
+//	public void clearRole(MemberRole memberRole) {
+//		this.roleSet.clear();
+//	}
 	
 	
 }
