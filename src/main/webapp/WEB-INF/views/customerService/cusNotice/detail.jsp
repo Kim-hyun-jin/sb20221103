@@ -7,13 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<%-- <link href="<%=context %>/common/css/bootstrap.min.css" rel="stylesheet">
-<script src="<%=context %>/common/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<%=context %>/common/js" type="text/javascript"></script>
-<script src="https://unpkg.com/@popperjs/core@2" type="text/javascript"></script>
-<!-- cdn 방식 제이쿼리 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --%>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
@@ -41,11 +34,11 @@ integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ
 				  <input class="form-control" type="file" id="formFileMultiple" multiple>
 				</div>
 				
-				<sec:authorize access="hasRole('ADMIN')">
+				
 					<a href="/customerService/cusNotice/modify">
 						<button type="button" class="btn btn-outline-secondary" >수정하기</button>
 					</a>
-				</sec:authorize>
+				
 				
 				<a href="/customerService/cusNotice/main">
 					<button type="button" class="btn btn-outline-secondary">목록으로</button>

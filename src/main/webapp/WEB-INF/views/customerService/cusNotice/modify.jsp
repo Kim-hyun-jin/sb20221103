@@ -40,8 +40,32 @@ integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ
 				  <input class="form-control" type="file" id="formFileMultiple" multiple>
 				</div>
 				
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+									예약 취소
+			</button>
+			
+			
+			
+				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">예약 취소 확인</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								진짜 진짜 진심으로 취소를 하시겠습니까?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+								<button type="submit" class="btn btn-primary">취소하기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<a href="/customerService/cusNotice/main">
-				<button type="submit" class="btn btn-outline-secondary">목록으로</button>
+					<button type="submit" class="btn btn-outline-secondary">목록으로</button>
 				</a>
 				
 			
